@@ -44,16 +44,15 @@ if __name__ == "__main__":
             files[key].append(value)
         csv_rows.append(selected_files)
 
-    print(num_comparisons(num_choices))
     print(len(files.keys()), " speakers represented in the survey.")
     print(len(csv_rows), " questions to select for the survey.")
     print(len(csv_rows) * num_comparisons(num_choices), " number of comparisons made.")
 
     # when writing survey file -> Folder1/File1.wav Folder2/File2.wav etc
-    include_folder_location = False
+    include_folder_location = True
     #else -> File1.wav File2.wav etc
 
-    with open('survey.csv', 'w') as f:
+    with open('survey.txt', 'w') as f:
         for row in csv_rows:
             for key, value in row.items():
                 if include_folder_location:
